@@ -1,0 +1,31 @@
+-name: variables according to preference
+hosts: local
+connection: local
+vars:
+greetings: "hello from playbook vars"
+
+vars_files:
+  -course.yaml
+
+vars_prompts:
+  -name: Greeting
+  prompt: "Please enter your greeting"
+  private: false
+
+
+tasks:
+  -name: print course greeting
+  vars:
+    greetings: "hello from task vars"
+  ansible.builtin.debug:
+  msg: "{{ greetings }}"
+
+
+
+#1. command line variable preference
+#2. task variable preference
+#3. file variable prederence
+#4. variable from prompt preference
+#5. Play variable preference
+#6. inventory variable preference
+

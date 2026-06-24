@@ -1,0 +1,11 @@
+- name: loops
+  hosts: local
+  connection: local
+  tasks:
+    - name: print names
+      ansible.builtin.debug:
+      msg: "hello, {{ item}}" #item is reserved keyword for loop, can also use another word instead of item by defining it in loop_var
+      loop:
+        -Jeevana
+        -Shiva
+        -Chinna
