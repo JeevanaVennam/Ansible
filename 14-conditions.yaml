@@ -1,0 +1,16 @@
+-name: printing based on conditions
+hosts: local
+connection: local
+vars:
+  number: 65
+tasks:
+  -name: check if the number is greater than 50
+  ansible.builtin.debug:
+  msg: "the given number {{ number }} is greater than 50"
+  when: number > 50
+
+
+  -name: check if the number is less than or equal to 50
+  ansible.builtin.debug:
+  msg: "the given number {{ number }} is less than or equal to 50"
+  when: number <= 50

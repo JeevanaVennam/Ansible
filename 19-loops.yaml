@@ -1,0 +1,13 @@
+- name: installing packages via loops and checking state
+  hosts: frontend
+  become: yes
+  tasks:
+    -name: intsall packages via loop
+    ansible.built.in.package:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+      loop:
+        - { name: 'nginx', state: 'present'}
+        - { name: 'mysql', state: 'absent'}
+        - { name: 'zip', state: 'absent'}
+      

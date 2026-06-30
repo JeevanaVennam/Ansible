@@ -1,0 +1,21 @@
+-name: ansible data types
+hosts: local
+connection: local
+vars:
+  duration: 12 #number
+  course: ansible #string
+  is_live: true #boolean
+  tools: #list []
+    - ansible
+    - terraform
+    - linux
+  concepts: #map or dictionary or object. referred like {}
+    ansible: script
+    terraform: script
+    linux: os
+    scripting: "Shell, Ansible, Python"
+tasks:
+  -name: print course information
+  ansible.buitlin.debug:
+  msg: " hello, welcome to {{ course }} course, the duration is {{ duration }}, is live {{ is_live }}, tools are {{ tools }}, concepts are {{ concepts }} and scripting languages are {{ scripting }}"
+  

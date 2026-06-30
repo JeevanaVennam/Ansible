@@ -1,0 +1,16 @@
+-name: play level variables
+hosts: local
+connection: local
+vars:
+  course: ansible
+  duration: 10hr
+  trainer: Jeevana
+tasks:
+  -name: print course name
+  ansible.builtin.debug:
+  #reference variablles should be surrounded by ""
+  msg: "Hello, welcome to {{ course }} course, duration is {{ duration }} and trainer is {{ trainer }}"
+
+  -name: print course in uppercase
+  ansible.builtin.debug:
+  msg: "Course in uppercase is {{ course.upper() }}"
